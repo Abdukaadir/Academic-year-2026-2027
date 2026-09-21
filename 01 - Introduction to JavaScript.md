@@ -1,6 +1,6 @@
 # Lesson 1: Introduction to JavaScript
 
-![JavaScript](../Images/java%20script%20as%20background%20image.jpg)
+![JavaScript](Images/java%20script%20as%20background%20image.jpg)
 
 ## 1.1 What Exactly Is JavaScript?
 
@@ -8,7 +8,7 @@
 
 JavaScript is a high-level, interpreted programming language that follows the ECMAScript standard. Alongside HTML and CSS, it's one of the three pillars the modern web is built on — and of the three, it's the one responsible for behavior and interactivity rather than structure or style.
 
-![How HTML, CSS, and JavaScript compare](../Images/comare%20html,%20css%20and%20java%20script%20image.jpg)
+![How HTML, CSS, and JavaScript compare](Images/comare%20html,%20css%20and%20java%20script%20image.jpg)
 
 ### What Makes JavaScript, JavaScript
 
