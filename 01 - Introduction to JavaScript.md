@@ -54,5 +54,3 @@ With frameworks like **React Native**, the same JavaScript skills used for the w
 - **Social apps** — portions of Facebook and Instagram are built using React Native.
 
 ---
-
-*Source: paraphrased from `Introduction to JavaScript.pdf`.*

@@ -314,4 +314,3 @@ console.log(receiptMessage); // Output: Thank you for shopping, Kwame!
 
 ---
 
-*Source: paraphrased from `Lesson 2 JavaScript Basics.pdf`, with reworked real-life examples and extra block-scope scenarios for `var`, `let`, and `const`.*
