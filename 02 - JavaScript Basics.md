@@ -105,59 +105,127 @@ console.log(warehouse);    // Output: Warehouse B
 ### Block Scope in Action
 
 This is the real difference between `var` and `let`/`const`: a **block** is anything wrapped in `{ }` — an `if` statement, a `for` loop, and so on. `let` and `const` only exist inside the block where they're declared; `var` leaks straight out of it.
+# JavaScript Variables: `var`, `let`, and `const`
 
-**Example 1 — a ticket count checked inside an `if` block:**
+JavaScript provides three keywords for declaring variables: `var`, `let`, and `const`.
+
+## Example 1 — `var`
+
+A variable declared with `var` can be accessed outside a block.
 
 ```js
 if (true) {
-  var totalTicketsVar = 100;
-  let totalTicketsLet = 100;
-  const totalTicketsConst = 100;
+    var name = "Ali";
 }
 
-console.log(totalTicketsVar);   // Output: 100 — var ignores the block boundary
-console.log(totalTicketsLet);   // ReferenceError — let stays trapped inside the block
-console.log(totalTicketsConst); // ReferenceError — const stays trapped inside the block
+console.log(name);
+
+// Output:
+// Ali
 ```
 
-**Example 2 — a classic loop pitfall with `var`:**
+`var` is not limited to the `if` block.
 
-Imagine printing a boarding-pass number for each passenger after a short delay:
+## Example 2 — `let`
+
+A variable declared with `let` is limited to the block where it is created.
 
 ```js
-for (var i = 1; i <= 3; i++) {
-  setTimeout(() => console.log("Boarding pass (var):", i), 100);
+if (true) {
+    let age = 20;
 }
-// Output:
-// Boarding pass (var): 4
-// Boarding pass (var): 4
-// Boarding pass (var): 4
-// var shares ONE variable across the entire loop, so by the time the
-// delayed messages run, i has already finished counting up to 4.
 
-for (let j = 1; j <= 3; j++) {
-  setTimeout(() => console.log("Boarding pass (let):", j), 100);
-}
-// Output:
-// Boarding pass (let): 1
-// Boarding pass (let): 2
-// Boarding pass (let): 3
-// let creates a FRESH variable for every single loop iteration.
+console.log(age);
+
+// Error:
+// ReferenceError
 ```
 
-This loop behavior is one of the main real-world reasons modern JavaScript favors `let` and `const` over `var`.
+The variable `age` cannot be accessed outside the block.
 
-**Example 3 — a fitting-room light switch (const protects against accidental changes):**
+A `let` variable can also be changed after it is declared.
 
 ```js
-const maxOccupancy = 1; // a fitting room only allows one person at a time
+let age = 20;
 
-function tryToChangeOccupancy() {
-  maxOccupancy = 2; // TypeError: Assignment to constant variable.
-}
+console.log(age);
+
+// Output:
+// 20
+
+age = 21;
+
+console.log(age);
+
+// Output:
+// 21
 ```
 
-`const` doesn't just organize code — it actively stops a value from being overwritten by mistake somewhere else in a large program.
+## Example 3 — `const`
+
+A `const` variable is also limited to its block, but its value cannot be reassigned.
+
+```js
+if (true) {
+    const university = "Zamzam University";
+}
+
+console.log(university);
+
+// Error:
+// ReferenceError
+```
+
+A `const` variable cannot be changed after it is declared.
+
+```js
+const country = "Somalia";
+
+console.log(country);
+
+// Output:
+// Somalia
+
+country = "Kenya";
+
+// Error:
+// TypeError
+```
+
+## Example 4 — Simple Comparison
+
+```js
+var studentName = "Ali";
+let studentAge = 20;
+const university = "Zamzam University";
+
+console.log(studentName);
+console.log(studentAge);
+console.log(university);
+```
+
+### Output
+
+```text
+Ali
+20
+Zamzam University
+```
+
+## Quick Comparison
+
+| Keyword | Can the value change? | Block scoped? |
+|---------|------------------------|---------------|
+| `var`   | Yes                    | No            |
+| `let`   | Yes                    | Yes           |
+| `const` | No                     | Yes           |
+
+## Remember
+
+- Use **`let`** when the value may change.
+- Use **`const`** when the value should not change.
+- `var` is an older way of declaring variables and is generally avoided in modern JavaScript.
+
 
 ### Data Types
 
