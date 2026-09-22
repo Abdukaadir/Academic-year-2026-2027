@@ -1,6 +1,20 @@
 # Lesson 1: Introduction to JavaScript
 
 ![JavaScript](Images/java%20script%20as%20background%20image.jpg)
+# Introduction to JavaScript
+
+A **programming language** is a formal language used to give instructions to a computer. Programming languages can be classified by how they are executed:
+
+- **Compiled languages:** Source code is translated into machine code before execution. Examples: C, C++, Rust.
+- **Interpreted languages:** Code is processed and executed at runtime. Examples: traditionally Python, PHP, Ruby.
+- **JIT-compiled languages:** Modern engines combine interpretation with Just-In-Time compilation. JavaScript uses this approach.
+
+## ECMAScript and JavaScript
+
+**ECMA** stands for **European Computer Manufacturers Association**, an organization now known as **Ecma International**. It develops and maintains standards for information and communication technologies.
+
+**ECMAScript (ES)** is the standardized specification that defines the core features of JavaScript. **JavaScript is an implementation of the ECMAScript standard.** In simple terms, ECMAScript defines the rules, while JavaScript implements those rules.
+
 
 ## 1.1 What Exactly Is JavaScript?
 
@@ -9,6 +23,19 @@
 JavaScript is a high-level, interpreted programming language that follows the ECMAScript standard. Alongside HTML and CSS, it's one of the three pillars the modern web is built on — and of the three, it's the one responsible for behavior and interactivity rather than structure or style.
 
 ![How HTML, CSS, and JavaScript compare](Images/comare%20html,%20css%20and%20java%20script%20image.jpg)
+
+
+## Brief History
+
+- **1995:** Brendan Eich created JavaScript at Netscape.
+- **1995:** JavaScript was introduced in Netscape Navigator.
+- **1997:** ECMAScript 1 (ES1) was standardized.
+- **1999:** ECMAScript 3 (ES3) was released.
+- **2009:** ECMAScript 5 (ES5) introduced major improvements.
+- **2015:** ECMAScript 2015 (ES6) introduced `let`, `const`, arrow functions, classes, modules, and other modern features.
+- **2016–Present:** ECMAScript moved to regular annual releases.
+
+Today, JavaScript is used for frontend, backend, mobile, desktop, and full-stack development.
 
 ### What Makes JavaScript, JavaScript
 
