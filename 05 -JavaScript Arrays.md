@@ -62,7 +62,7 @@ Think of `push`/`pop` as placing or taking the newest plate at the top of a stac
 
 **Exercise:** Start with `let pantry = ["flour", "sugar"]`. Add `"salt"` at the end, add `"oil"` at the beginning, remove one item from each end, and print both removed values and the remaining pantry.
 
-## 7. Nested arrays
+## 4. Nested arrays
 
 A nested array is an array whose items include other arrays. Use it when each entry is itself a sequence, such as a weekly timetable, a cinema seating chart, or a grid of map cells.
 
@@ -77,22 +77,3 @@ console.log(seats[1]);    // second row: ["B1", "B2", "B3"]
 console.log(seats[1][2]); // row 2, seat 3: "B3"
 seats[0][1] = "Reserved";
 ```
-
-Read nested indexes from the outside inward: `seats[row][column]`. The first index selects the inner array; the second selects an item within it. For the timetable example, `week[day][period]` can select one lesson.
-
-Nested arrays need not be rectangular, but a grid is easier to use if every row has the same number of columns. To visit every cell:
-
-```js
-for (const row of seats) {
-  for (const seat of row) {
-    console.log(seat);
-  }
-}
-```
-
-## 8. Arrays versus other collection choices
-
-An array is appropriate when order and position are meaningful, and when repeated items are expected. An array is not a special “list of only one type”: JavaScript permits mixed values, but a predictable structure is usually easier to maintain. If you need to describe one item through named fields, an object is a better fit; see [JavaScript Objects — Detailed Guide](JavaScript%20Objects%20%E2%80%94%20Detailed%20Guide.md).
-
-**Exercise:** Decide whether each should be an array, an object, or an array of objects: a playlist, one user's profile, and a list of library books where each book has a title and author. Explain each choice.
-
