@@ -16,52 +16,6 @@ const mixed = ["Ada", 31, true]; // valid, although one kind of data is often ea
 
 This is the clearest form for most programs because you can see the initial items directly.
 
-### `new Array(...)` — constructor form
-
-The `Array` constructor has behavior that can surprise beginners:
-
-```js
-const names = new Array("Ada", "Lin"); // ["Ada", "Lin"]
-const spaces = new Array(3);            // three empty slots; length is 3
-```
-
-One numeric argument means “make an array with this length,” not “put this number in the array.” For a one-number array, use `[3]` or `Array.of(3)`. Prefer literals for ordinary lists.
-
-### `Array.of(...)` — make items from arguments
-
-`Array.of` treats each argument as an item, including a single number:
-
-```js
-const oneNumber = Array.of(3); // [3]
-const several = Array.of(3, 6, 9); // [3, 6, 9]
-```
-
-Unlike `new Array(3)`, `Array.of(3)` contains one item whose value is `3`.
-
-### `Array.from(...)` — make an array from iterable or array-like data
-
-Use `Array.from` to create a new array from a string, a `Set`, or a value with a length and indexed entries. It can also transform each item while creating the array.
-
-```js
-const letters = Array.from("cat"); // ["c", "a", "t"]
-const doubled = Array.from([2, 4, 6], number => number * 2);
-// [4, 8, 12]
-```
-
-### Spread syntax — copy or combine
-
-The spread operator (`...`) expands an iterable's items into a new array literal.
-
-```js
-const morning = ["tea", "toast"];
-const lunch = ["rice", "beans"];
-const meals = [...morning, ...lunch]; // new combined array
-const copy = [...morning];            // shallow copy
-```
-
-These creation approaches are not interchangeable in every case: use a literal for a known list, `Array.of` when arguments should become items, `Array.from` to convert/transform another iterable, and spread to combine or copy lists.
-
-**Exercise:** Create `[5]` using a literal, `Array.of`, and the constructor in a way that results in one item with value `5`. Also create a three-item array using `Array.from` and a mapping callback. Explain why `new Array(5)` is different.
 
 ## 2. Indexes, length, reading, and updating
 
