@@ -62,79 +62,6 @@ Think of `push`/`pop` as placing or taking the newest plate at the top of a stac
 
 **Exercise:** Start with `let pantry = ["flour", "sugar"]`. Add `"salt"` at the end, add `"oil"` at the beginning, remove one item from each end, and print both removed values and the remaining pantry.
 
-## 4. Insert, remove, replace, and copy sections
-
-`splice(start, deleteCount, ...items)` changes an array in place. It can remove items, insert items, or do both. Its return value is a new array containing the removed items.
-
-```js
-const schedule = ["math", "break", "science", "art"];
-const removed = schedule.splice(1, 1, "lunch");
-// schedule: ["math", "lunch", "science", "art"]
-// removed: ["break"]
-```
-
-`slice(start, end)` returns a shallow copy of a section and does not change the original. The `end` position is excluded.
-
-```js
-const firstTwo = schedule.slice(0, 2);
-const copyOfSchedule = schedule.slice();
-```
-
-Use `splice` when the source list itself should change; use `slice` when you want a selection or copy. To copy an array one level deep, `[...schedule]` is another option. Nested objects inside a shallow copy are still shared references.
-
-**Exercise:** With `const scores = [10, 20, 30, 40, 50]`, use `slice` to get `[20, 30]` without changing `scores`. Then use `splice` to replace `30` with `35` and inspect both the changed array and the removed-items result.
-
-## 5. Find, test, transform, and filter
-
-Arrays provide methods that express common list tasks without manually managing an index:
-
-```js
-const prices = [12, 25, 8, 30];
-
-prices.includes(25);                    // true: does it contain this value?
-prices.indexOf(8);                     // 2: first matching index, or -1
-prices.find(price => price > 20);       // 25: first matching item
-prices.findIndex(price => price > 20);  // 1: its index
-prices.some(price => price < 10);       // true: does at least one match?
-prices.every(price => price > 0);      // true: do all match?
-const discounted = prices.map(p => p * 0.9); // new transformed array
-const large = prices.filter(p => p >= 20);   // new matching array
-```
-
-`map` keeps one output for every input, while `filter` keeps only inputs that pass a condition. `find` returns one matching value; `filter` returns all matches. These methods do not replace the original array.
-
-`reduce` combines a list into one accumulated result, such as a total:
-
-```js
-const total = prices.reduce((sum, price) => sum + price, 0); // 75
-```
-
-The `0` is the starting value for the accumulator. Providing it makes the behavior clear, including for an empty list.
-
-**Exercise:** Given an array of daily step counts, use `filter` to get days over 8,000 steps, `map` to convert the counts to thousands, `some` to check whether any day exceeded 10,000, and `reduce` to calculate the total.
-
-## 6. Iterating over arrays
-
-Use `for...of` when you need each value, `forEach` for an action on each value, and an indexed `for` loop when the position matters or you need precise control.
-
-```js
-const names = ["Nia", "Omar", "Pia"];
-
-for (const name of names) {
-  console.log(name);
-}
-
-names.forEach((name, index) => console.log(index, name));
-
-for (let index = 0; index < names.length; index++) {
-  console.log(names[index]);
-}
-```
-
-Avoid changing the array's length while looping unless that behavior is intentional. For a new transformed list, `map` is often clearer than building one manually.
-
-**Exercise:** Print each item in `const chores = ["wash", "cook", "study"]` with a one-based number (1, 2, 3). Do it once with an indexed loop and once with `forEach`.
-
 ## 7. Nested arrays
 
 A nested array is an array whose items include other arrays. Use it when each entry is itself a sequence, such as a weekly timetable, a cinema seating chart, or a grid of map cells.
@@ -162,8 +89,6 @@ for (const row of seats) {
   }
 }
 ```
-
-**Exercise:** Create a 3-by-3 array representing a tic-tac-toe board. Read the center cell, change a corner cell to `"X"`, and use nested loops to print all cells.
 
 ## 8. Arrays versus other collection choices
 
