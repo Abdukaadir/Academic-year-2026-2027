@@ -191,4 +191,239 @@ The loop adds `1 + 2 + 3 + 4 + 5`.
 
 ---
 
+# JavaScript Loops — Additional Examples
+
+These sections extend the introductory `for` loop lesson with nested loops, loops with arrays, and loops with `if` conditions.
+
+## 7. Nested Loops
+
+### 7.1 Definition
+
+A **nested loop** is a loop placed inside another loop. For each iteration of the outer loop, the inner loop completes its iterations.
+
+### 7.2 Basic Example
+
+```javascript
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 2; j++) {
+        console.log("Outer:", i, "Inner:", j);
+    }
+}
+```
+
+**Output:**
+
+```text
+Outer: 1 Inner: 1
+Outer: 1 Inner: 2
+Outer: 2 Inner: 1
+Outer: 2 Inner: 2
+Outer: 3 Inner: 1
+Outer: 3 Inner: 2
+```
+
+**How it works:**
+
+1. The outer loop starts with `i = 1`.
+2. The inner loop runs fully for `j = 1` and `j = 2`.
+3. The outer loop moves to `i = 2`, and the inner loop runs again.
+4. This continues until the outer loop finishes.
+
+### 7.3 Real-Life Example: Classrooms and Students
+
+Imagine a university has three classrooms, and you want to print two student numbers for each classroom.
+
+```javascript
+for (let classroom = 1; classroom <= 3; classroom++) {
+    for (let student = 1; student <= 2; student++) {
+        console.log("Classroom " + classroom + ", Student " + student);
+    }
+}
+```
+
+**Output:**
+
+```text
+Classroom 1, Student 1
+Classroom 1, Student 2
+Classroom 2, Student 1
+Classroom 2, Student 2
+Classroom 3, Student 1
+Classroom 3, Student 2
+```
+
+### 7.4 Nested Loop Practice
+
+1. Use nested loops to print three rows, with four stars (`*`) in each row.
+2. Use nested loops to display the multiplication tables from 1 to 3, with each table showing multipliers from 1 to 5.
+
+## 8. Loops with Arrays
+
+### 8.1 Why Use a Loop with an Array?
+
+An array stores multiple values in one variable. A loop lets us access each value without writing a separate statement for every element.
+
+### 8.2 Example: Display All Subject Names
+
+```javascript
+let subjects = ["JavaScript", "Database", "Networking", "Mathematics"];
+
+for (let i = 0; i < subjects.length; i++) {
+    console.log(subjects[i]);
+}
+```
+
+**Output:**
+
+```text
+JavaScript
+Database
+Networking
+Mathematics
+```
+
+**How it works:**
+
+- `subjects.length` gives the number of elements in the array.
+- Array indexes start at `0`, so the first item is `subjects[0]`.
+- Each time the loop runs, `i++` moves to the next index.
+- The loop stops when `i` is no longer less than `subjects.length`.
+
+### 8.3 Example: Ask the User to Enter Subjects
+
+```javascript
+let subjects = [];
+let subjectNumber = Number(prompt("How many subjects did you take?"));
+
+for (let i = 0; i < subjectNumber; i++) {
+    let subject = prompt("Enter subject number " + (i + 1));
+    subjects.push(subject);
+}
+
+console.log("Your subjects are:");
+
+for (let i = 0; i < subjects.length; i++) {
+    console.log(subjects[i]);
+}
+```
+
+The first loop collects the subject names and stores them using `push()`. The second loop displays each stored subject.
+
+### 8.4 Example: Calculate the Total of Array Values
+
+```javascript
+let marks = [70, 85, 60, 90];
+let total = 0;
+
+for (let i = 0; i < marks.length; i++) {
+    total = total + marks[i];
+}
+
+console.log("Total marks:", total);
+```
+
+**Output:**
+
+```text
+Total marks: 305
+```
+
+### 8.5 Loop-with-Array Practice
+
+1. Create an array containing five student names and use a loop to display each name.
+2. Create an array containing five numbers and use a loop to calculate their total.
+3. Create an array of subject names and use a loop to display each subject with its numbered position.
+
+## 9. Loops with `if` Conditions
+
+### 9.1 Why Combine a Loop with an `if` Statement?
+
+A loop can visit every value in a sequence or array. An `if` statement lets the program make a decision about each value. Together, they can find matching values, count results, or display only values that meet a condition.
+
+### 9.2 Example: Print Only Even Numbers
+
+```javascript
+for (let i = 1; i <= 10; i++) {
+    if (i % 2 === 0) {
+        console.log(i);
+    }
+}
+```
+
+**Output:**
+
+```text
+2
+4
+6
+8
+10
+```
+
+The expression `i % 2 === 0` checks whether the number is divisible by 2 without a remainder.
+
+### 9.3 Example: Find Students Who Passed
+
+Assume a mark of 50 or higher is a pass.
+
+```javascript
+let marks = [35, 72, 48, 90, 55];
+
+for (let i = 0; i < marks.length; i++) {
+    if (marks[i] >= 50) {
+        console.log(marks[i] + " - Pass");
+    } else {
+        console.log(marks[i] + " - Fail");
+    }
+}
+```
+
+**Output:**
+
+```text
+35 - Fail
+72 - Pass
+48 - Fail
+90 - Pass
+55 - Pass
+```
+
+The loop checks each mark. The `if...else` statement decides whether to display `Pass` or `Fail`.
+
+### 9.4 Example: Find Subjects with a Specific Name
+
+```javascript
+let subjects = ["JavaScript", "Database", "Networking", "JavaScript"];
+
+for (let i = 0; i < subjects.length; i++) {
+    if (subjects[i] === "JavaScript") {
+        console.log("JavaScript found at index " + i);
+    }
+}
+```
+
+**Output:**
+
+```text
+JavaScript found at index 0
+JavaScript found at index 3
+```
+
+The loop checks every array element and displays the index whenever the subject is `"JavaScript"`.
+
+### 9.5 Loop-and-Condition Practice
+
+1. Use a loop and an `if` statement to print numbers from 1 to 30 that are divisible by 3.
+2. Given an array of marks, display only marks that are 50 or higher.
+3. Given an array of numbers, count how many numbers are negative.
+
+## 10. Summary
+
+- **Nested loops:** place one loop inside another loop.
+- **Loops with arrays:** use an index and `array.length` to visit array elements.
+- **Loops with conditions:** use `if` or `if...else` inside a loop to make decisions about each value.
+
+**Reminder:** In a standard index-based array loop, use `i < array.length` rather than `i <= array.length`. The last valid index is `array.length - 1`.
+
+
 **Next lesson:** The `while` loop — definition, syntax, execution, and real-life examples.
