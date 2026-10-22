@@ -484,6 +484,31 @@ Operation: *
 Result: 100
 ```
 
+
+```javascript
+
+
+let num1=Number(prompt("Enter The First Number"));
+let num2=Number(prompt("Enter The Second Number"));
+let operator=Number(prompt("Choose Operator \n1.Addition \n2.Subtruction \n3.Multiplication \n4.Devision"))
+
+if(operator==1){
+  console.log(num1+"+"+num2+"="+(num1+num2))
+}
+else if(operator==2){
+  console.log(num1+"-"+num2+"="+(num1-num2))
+}
+else if(operator==3){
+  console.log(num1+"*"+num2+"="+(num1*num2))
+}
+else if(operator==4){
+  console.log(num2==0?"Zero can be devide":num1+"/"+num2+"="+(num1/num2))
+}
+else{
+  console.log("Sorry Invalid Number choose 1 to 4 ")
+}
+    
+    ```
 ---
 
 ## Exercise 2: Student Grade
