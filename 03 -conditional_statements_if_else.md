@@ -234,6 +234,230 @@ The program compares the student's marks with each condition and displays the ap
 
 ---
 
+# JavaScript Nested `if` Statements and Logical Operators
+
+## 1. Student Pass or Fail
+
+A student must score at least 50 to pass. If they pass, check whether they scored 80 or more to award a distinction.
+
+### Example A: Using a Nested `if`
+
+```javascript
+let mark = 85;
+
+if (mark >= 50) {
+    console.log("Student passed");
+
+    if (mark >= 80) {
+        console.log("Distinction awarded");
+    }
+} else {
+    console.log("Student failed");
+}
+```
+
+**Output:**
+
+```text
+Student passed
+Distinction awarded
+```
+
+**How it works:**
+
+1. The outer `if` checks whether `mark >= 50`.
+2. Because the mark is 85, the outer condition is true.
+3. The inner `if` checks whether `mark >= 80`.
+4. Both conditions are true, so both messages are displayed.
+
+### Example B: Using Logical Operators
+
+```javascript
+let mark = 85;
+
+if (mark >= 50) {
+    console.log("Student passed");
+}
+
+if (mark >= 50 && mark >= 80) {
+    console.log("Distinction awarded");
+}
+
+if (mark < 50) {
+    console.log("Student failed");
+}
+```
+
+**Output:**
+
+```text
+Student passed
+Distinction awarded
+```
+
+The `&&` operator means **AND**. Both conditions must be true for the combined condition to be true.
+
+**Note:** `mark >= 50 && mark >= 80` can be simplified to `mark >= 80`, because a mark of 80 or more is already at least 50.
+
+## 2. Login System
+
+A user must enter the correct username and password.
+
+### Example A: Using a Nested `if`
+
+```javascript
+let username = "admin";
+let password = "1234";
+
+if (username === "admin") {
+    if (password === "1234") {
+        console.log("Login successful");
+    } else {
+        console.log("Incorrect password");
+    }
+} else {
+    console.log("Incorrect username");
+}
+```
+
+**Output:**
+
+```text
+Login successful
+```
+
+### Example B: Using `&&`
+
+```javascript
+let username = "admin";
+let password = "1234";
+
+if (username === "admin" && password === "1234") {
+    console.log("Login successful");
+} else {
+    console.log("Incorrect username or password");
+}
+```
+
+**Output:**
+
+```text
+Login successful
+```
+
+Both conditions must be true for the login to succeed. The nested version can give a specific error message; the combined version gives one general error message.
+
+## 3. University Admission
+
+A student must score at least 60 on the entrance exam and at least 50 in English.
+
+### Example A: Using a Nested `if`
+
+```javascript
+let entranceMark = 75;
+let englishMark = 65;
+
+if (entranceMark >= 60) {
+    console.log("Entrance mark accepted");
+
+    if (englishMark >= 50) {
+        console.log("Admission requirements satisfied");
+    } else {
+        console.log("English mark is too low");
+    }
+} else {
+    console.log("Entrance mark is too low");
+}
+```
+
+**Output:**
+
+```text
+Entrance mark accepted
+Admission requirements satisfied
+```
+
+### Example B: Using `&&`
+
+```javascript
+let entranceMark = 75;
+let englishMark = 65;
+
+if (entranceMark >= 60 && englishMark >= 50) {
+    console.log("Admission requirements satisfied");
+} else {
+    console.log("Admission requirements not satisfied");
+}
+```
+
+**Output:**
+
+```text
+Admission requirements satisfied
+```
+
+The combined condition checks both requirements. The `else` branch does not identify which requirement was not met.
+
+## 4. User Input and Course Registration
+
+The program checks the user's age. If the user is at least 18, it asks whether they have the required certificate.
+
+### Example A: Using a Nested `if`
+
+```javascript
+let age = Number(prompt("Enter your age"));
+
+if (age >= 18) {
+    let certificate = prompt(
+        "Do you have the required certificate? (yes/no)"
+    );
+
+    if (certificate === "yes") {
+        console.log("You can register");
+    } else {
+        console.log("You need the required certificate");
+    }
+} else {
+    console.log("You must be at least 18");
+}
+```
+
+This asks about the certificate only if the user's age is at least 18.
+
+### Example B: Using `&&`
+
+If both pieces of information are already available, combine the conditions:
+
+```javascript
+let age = 20;
+let certificate = "yes";
+
+if (age >= 18 && certificate === "yes") {
+    console.log("You can register");
+} else {
+    console.log("You cannot register");
+}
+```
+
+**Output:**
+
+```text
+You can register
+```
+
+Use the nested version when you need to ask for the certificate only after checking the age.
+
+## 5. Nested `if` vs. Logical Operators
+
+| Situation | Suitable approach |
+|---|---|
+| Check whether multiple conditions are all true | `&&` |
+| Check whether at least one condition is true | `||` |
+| Check one condition, then make another decision inside it | Nested `if` |
+| Give different messages for different failure reasons | Nested `if` or `if...else if` |
+| Check several requirements that are already available | A combined condition using `&&` |
+
+
 # 6. Practice Exercises
 
 Complete the following exercises using JavaScript.
@@ -352,6 +576,56 @@ The number is zero.
 ```
 
 ---
+
+## Student Practice Exercises (Nested If with Logical Operators)
+
+**Instructions:** Write and test each program in JavaScript. Do not use arrays or loops. For each exercise, try to solve it first with a nested `if` where appropriate, then decide whether a logical operator can make the condition simpler.
+
+
+1. **Library membership:** A student can borrow a book if they have a valid student ID and their membership is active. Use `&&` to check both conditions.
+2. **Discount eligibility:** A customer receives a discount if they are a university student or are at least 60 years old. Use `||` to check the two alternatives.
+3. **Driving eligibility:** Ask the user to enter their age with `prompt()`. If they are at least 18, ask whether they have a driving license. Display an appropriate message using a nested `if`.
+4. **Password check:** Create a variable named `password`. If it matches the correct password, display `Password accepted`. Otherwise, display `Incorrect password`. Then update the program to check the username and password together using `&&`.
+5. **Scholarship eligibility:** A student must have a mark of at least 85 and good attendance of at least 90 percent. Use `&&` to decide whether the student qualifies.
+6. **Sports club entry:** A person can enter the sports club if they are a registered member. If they are not a member, check whether they have a valid guest pass. Use a nested `if` to display `Entry allowed` or `Entry denied`.
+
+### Challenge Questions
+
+7. **Predict the output:** Before running the code, write down what it will display. Then test your answer.
+
+    ```javascript
+    let mark = 75;
+
+    if (mark >= 50) {
+        console.log("Passed");
+        if (mark >= 80) {
+            console.log("Distinction");
+        }
+    } else {
+        console.log("Failed");
+    }
+    ```
+
+8. **Compare the conditions:** Explain the difference between these two conditions and give one example where you would use each.
+
+    ```javascript
+    age >= 18 && hasCertificate === "yes"
+    ```
+
+    ```javascript
+    age >= 18 || hasCertificate === "yes"
+    ```
+
+9. **Improve the message:** Rewrite the admission example so that it tells the student whether the entrance mark is too low, the English mark is too low, or both requirements are satisfied.
+
+## Summary
+
+- A **nested `if`** places one decision inside another.
+- The logical AND operator (`&&`) is true only when both conditions are true.
+- The logical OR operator (`||`) is true when at least one condition is true.
+- Use nested `if` statements when a later decision depends on an earlier one or when you need different messages for different outcomes.
+- Use logical operators to combine conditions when a single combined decision is sufficient.
+
 
 # Conclusion
 
